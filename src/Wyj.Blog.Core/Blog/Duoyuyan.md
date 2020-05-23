@@ -19,24 +19,18 @@
 
 ```json
                     //的多语言配置==>中文
-                    
-                     "TagTagName": "TagName",
-                    "TagTagNameInputDesc": "请输入TagName",
-                     
-                    
-                     "TagDisplayName": "DisplayName",
-                    "TagDisplayNameInputDesc": "请输入DisplayName",
-                     
+"PostId": "PostId",
+"TagId": "TagId",
 					                     
-                    "Tag": "",
-                    "ManageTag": "管理",
-                    "QueryTag": "查询",
-                    "CreateTag": "添加",
-                    "EditTag": "编辑",
-                    "DeleteTag": "删除",
-                    "BatchDeleteTag": "批量删除",
-                    "ExportTag": "导出",
-                    "TagList": "列表",
+                    "PostTag": "",
+                    "ManagePostTag": "管理",
+                    "QueryPostTag": "查询",
+                    "CreatePostTag": "添加",
+                    "EditPostTag": "编辑",
+                    "DeletePostTag": "删除",
+                    "BatchDeletePostTag": "批量删除",
+                    "ExportPostTag": "导出",
+                    "PostTagList": "列表",
                      //的多语言配置==End
                     
 
@@ -48,24 +42,18 @@
 找到Json文件夹下的Blog.json文件，复制以下代码进入即可。
 ```json
              //的多语言配置==>英文
-                    
-                     "TagTagName": "TagTagName",
-                    "TagTagNameInputDesc": "Please input your TagTagName",
-                     
-                    
-                     "TagDisplayName": "TagDisplayName",
-                    "TagDisplayNameInputDesc": "Please input your TagDisplayName",
-                     
+"PostId": "PostId",
+"TagId": "TagId",
 					                     
-                    "Tag": "Tag",
-                    "ManageTag": "ManageTag",
-                    "QueryTag": "QueryTag",
-                    "CreateTag": "CreateTag",
-                    "EditTag": "EditTag",
-                    "DeleteTag": "DeleteTag",
-                    "BatchDeleteTag": "BatchDeleteTag",
-                    "ExportTag": "ExportTag",
-                    "TagList": "TagList",
+                    "PostTag": "PostTag",
+                    "ManagePostTag": "ManagePostTag",
+                    "QueryPostTag": "QueryPostTag",
+                    "CreatePostTag": "CreatePostTag",
+                    "EditPostTag": "EditPostTag",
+                    "DeletePostTag": "DeletePostTag",
+                    "BatchDeletePostTag": "BatchDeletePostTag",
+                    "ExportPostTag": "ExportPostTag",
+                    "PostTagList": "PostTagList",
                      //的多语言配置==End
                     
 

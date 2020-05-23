@@ -1,5 +1,3 @@
-
-
 using Abp.Application.Services.Dto;
 
 namespace Wyj.Blog.Dtos
@@ -7,11 +5,6 @@ namespace Wyj.Blog.Dtos
     public class PagedAndSortedInputDto : PagedInputDto, ISortedResultRequest
     {
         public string Sorting { get; set; }
-
-
-		 
-		 
-         
 
         public PagedAndSortedInputDto()
         {

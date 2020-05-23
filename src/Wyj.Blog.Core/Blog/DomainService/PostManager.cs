@@ -1,5 +1,3 @@
-
-
 using Abp.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,26 +5,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace Wyj.Blog.Blog.DomainService
 {
     /// <summary>
     /// 领域服务层一个模块的核心业务逻辑
     ///</summary>
-    public class PostManager :BlogDomainServiceBase, IPostManager
+    public class PostManager : BlogDomainServiceBase, IPostManager
     {
-		
-		private readonly IRepository<Post,Guid> _postRepository;
+        private readonly IRepository<Post, Guid> _postRepository;
 
-		/// <summary>
-		/// Post的构造方法
-		/// 通过构造函数注册服务到依赖注入容器中
-		///</summary>
-	public PostManager(IRepository<Post, Guid> postRepository)	{
-			_postRepository =  postRepository;
-		}
+        /// <summary>
+        /// Post的构造方法
+        /// 通过构造函数注册服务到依赖注入容器中
+        ///</summary>
+        public PostManager(IRepository<Post, Guid> postRepository)
+        {
+            _postRepository = postRepository;
+        }
 
-		 #region 查询判断的业务
+        #region 查询判断的业务
 
         /// <summary>
         /// 返回表达式数的实体信息即IQueryable类型
@@ -68,10 +65,8 @@ namespace Wyj.Blog.Blog.DomainService
             return result;
         }
 
-        #endregion
+        #endregion 查询判断的业务
 
-		 
-		 
         public async Task<Post> CreateAsync(Post entity)
         {
             entity.Id = await _postRepository.InsertAndGetIdAsync(entity);
@@ -99,19 +94,9 @@ namespace Wyj.Blog.Blog.DomainService
             //TODO:删除前的逻辑判断，是否允许删除
             await _postRepository.DeleteAsync(a => input.Contains(a.Id));
         }
-	 
-			
-							//// custom codes
-									
-							
 
-							//// custom codes end
+        //// custom codes
 
-
-
-		 
-		  
-		 
-
-	}
+        //// custom codes end
+    }
 }

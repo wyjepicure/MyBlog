@@ -48,6 +48,15 @@ namespace Wyj.Blog.Web.Startup
                 )
                 .AddItem(
                     new MenuItemDefinition(
+                        PageNames.Tags,
+                        L("Tag"),
+                        url: "Tag",
+                        icon: "fa  fa-tags"
+                    // permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
+                    )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
                         PageNames.About,
                         L("About"),
                         url: "About",

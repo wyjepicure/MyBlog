@@ -10,17 +10,17 @@ namespace Wyj.Blog.Blog.DomainService
     /// <summary>
     /// 领域服务层一个模块的核心业务逻辑
     ///</summary>
-    public class CategoryManager : BlogDomainServiceBase, ICategoryManager
+    public class PostTagStore : BlogDomainServiceBase, IPostTagManager
     {
-        private readonly IRepository<Category, int> _categoryRepository;
+        private readonly IRepository<PostTag, int> _postTagRepository;
 
         /// <summary>
-        /// Category的构造方法
+        /// PostTag的构造方法
         /// 通过构造函数注册服务到依赖注入容器中
         ///</summary>
-        public CategoryManager(IRepository<Category, int> categoryRepository)
+        public PostTagStore(IRepository<PostTag, int> postTagRepository)
         {
-            _categoryRepository = categoryRepository;
+            _postTagRepository = postTagRepository;
         }
 
         #region 查询判断的业务
@@ -29,18 +29,18 @@ namespace Wyj.Blog.Blog.DomainService
         /// 返回表达式数的实体信息即IQueryable类型
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Category> QueryCategorys()
+        public IQueryable<PostTag> QueryPostTags()
         {
-            return _categoryRepository.GetAll();
+            return _postTagRepository.GetAll();
         }
 
         /// <summary>
         /// 返回即IQueryable类型的实体，不包含EF Core跟踪标记
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Category> QueryCategorysAsNoTracking()
+        public IQueryable<PostTag> QueryPostTagsAsNoTracking()
         {
-            return _categoryRepository.GetAll().AsNoTracking();
+            return _postTagRepository.GetAll().AsNoTracking();
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace Wyj.Blog.Blog.DomainService
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<Category> FindByIdAsync(int id)
+        public async Task<PostTag> FindByIdAsync(int id)
         {
-            var entity = await _categoryRepository.GetAsync(id);
+            var entity = await _postTagRepository.GetAsync(id);
             return entity;
         }
 
@@ -61,27 +61,27 @@ namespace Wyj.Blog.Blog.DomainService
         /// <returns></returns>
         public async Task<bool> IsExistAsync(int id)
         {
-            var result = await _categoryRepository.GetAll().AnyAsync(a => a.Id == id);
+            var result = await _postTagRepository.GetAll().AnyAsync(a => a.Id == id);
             return result;
         }
 
         #endregion 查询判断的业务
 
-        public async Task<Category> CreateAsync(Category entity)
+        public async Task<PostTag> CreateAsync(PostTag entity)
         {
-            entity.Id = await _categoryRepository.InsertAndGetIdAsync(entity);
+            entity.Id = await _postTagRepository.InsertAndGetIdAsync(entity);
             return entity;
         }
 
-        public async Task UpdateAsync(Category entity)
+        public async Task UpdateAsync(PostTag entity)
         {
-            await _categoryRepository.UpdateAsync(entity);
+            await _postTagRepository.UpdateAsync(entity);
         }
 
         public async Task DeleteAsync(int id)
         {
             //TODO:删除前的逻辑判断，是否允许删除
-            await _categoryRepository.DeleteAsync(id);
+            await _postTagRepository.DeleteAsync(id);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Wyj.Blog.Blog.DomainService
         public async Task BatchDelete(List<int> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
-            await _categoryRepository.DeleteAsync(a => input.Contains(a.Id));
+            await _postTagRepository.DeleteAsync(a => input.Contains(a.Id));
         }
 
         //// custom codes

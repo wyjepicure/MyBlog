@@ -1,5 +1,3 @@
-
-
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 
@@ -12,13 +10,6 @@ namespace Wyj.Blog.Dtos
 
         [Range(0, int.MaxValue)]
         public int SkipCount { get; set; }
-
-
-
-		 
-		 
-         
-
 
         public PagedInputDto()
         {

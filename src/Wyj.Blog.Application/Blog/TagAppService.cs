@@ -1,24 +1,15 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
-using Abp.AutoMapper;
 using Abp.Linq.Extensions;
 using Abp.Extensions;
 using Abp.Domain.Repositories;
-using L._52ABP.Application.Dtos;
-using L._52ABP.Common.Extensions.Enums;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
-using Wyj.Blog.Blog;
 using Wyj.Blog.Blog.Dtos;
-using Wyj.Blog.Blog.Exporting;
+
 using Wyj.Blog.Blog.DomainService;
-using Wyj.Blog.Authorization;
-using Wyj.Blog.Blog.Authorization;
 
 namespace Wyj.Blog.Blog
 {
@@ -50,8 +41,8 @@ namespace Wyj.Blog.Blog
         ///      </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Query)]
-        public async Task<PagedResultDto<TagListDto>> GetPaged(GetTagsInput input)
+      //  [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Query)]
+        public async Task<PagedResultDto<TagListDto>> GetAll(GetTagsInput input)
         {
             var query = _tagRepository.GetAll()
 
@@ -77,7 +68,7 @@ namespace Wyj.Blog.Blog
         /// <summary>
         /// 通过指定id获取TagListDto信息
         /// </summary>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Query)]
+      //  [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Query)]
         public async Task<TagListDto> GetById(EntityDto<int> input)
         {
             var entity = await _tagRepository.GetAsync(input.Id);
@@ -91,7 +82,7 @@ namespace Wyj.Blog.Blog
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create, TagPermissions.Pages_Blog_Tag_Edit)]
+       // [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create, TagPermissions.Pages_Blog_Tag_Edit)]
         public async Task<GetTagForEditOutput> GetForEdit(NullableIdDto<int> input)
         {
             var output = new GetTagForEditOutput();
@@ -116,7 +107,7 @@ namespace Wyj.Blog.Blog
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create, TagPermissions.Pages_Blog_Tag_Edit)]
+     //   [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create, TagPermissions.Pages_Blog_Tag_Edit)]
         public async Task CreateOrUpdate(CreateOrUpdateTagInput input)
         {
             if (input.Tag.Id.HasValue)
@@ -132,7 +123,7 @@ namespace Wyj.Blog.Blog
         /// <summary>
         /// 新增
         /// </summary>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create)]
+        //[AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create)]
         protected virtual async Task<TagEditDto> Create(TagEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
@@ -148,7 +139,7 @@ namespace Wyj.Blog.Blog
         /// <summary>
         /// 编辑
         /// </summary>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Edit)]
+       // [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Edit)]
         protected virtual async Task Update(TagEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
@@ -165,7 +156,7 @@ namespace Wyj.Blog.Blog
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Delete)]
+       // [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Delete)]
         public async Task Delete(EntityDto<int> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
@@ -175,7 +166,7 @@ namespace Wyj.Blog.Blog
         /// <summary>
         /// 批量删除Tag的方法
         /// </summary>
-        [AbpAuthorize(TagPermissions.Pages_Blog_Tag_BatchDelete)]
+       // [AbpAuthorize(TagPermissions.Pages_Blog_Tag_BatchDelete)]
         public async Task BatchDelete(List<int> input)
         {
             // TODO:批量删除前的逻辑判断，是否允许删除

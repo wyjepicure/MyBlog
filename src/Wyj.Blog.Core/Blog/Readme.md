@@ -24,7 +24,7 @@
 然后复制以下代码到 的PreInitialize 方法中:
 
 ```csharp
-Configuration.Authorization.Providers.Add<TagAuthorizationProvider>();
+Configuration.Authorization.Providers.Add<PostTagAuthorizationProvider>();
 
 ```
 
@@ -42,7 +42,7 @@ Configuration.Modules.AbpAutoMapper().Configurators.Add(configuration =>
     // ....其他代码
 
     // 只需要复制这一段
-TagDtoAutoMapper.CreateMappings(configuration);
+PostTagDtoAutoMapper.CreateMappings(configuration);
 
     // ....其他代码
 });
@@ -53,7 +53,7 @@ TagDtoAutoMapper.CreateMappings(configuration);
 打开EntityFrameworkCore类库在 **BlogDbContext**类文件中添加以下代码段：
 
 ```csharp
-public DbSet<Tag>  Tags { get; set; }
+public DbSet<PostTag>  PostTags { get; set; }
 
  ```
 以实现将实体配置到数据库上下文中。
@@ -63,7 +63,7 @@ public DbSet<Tag>  Tags { get; set; }
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
-   modelBuilder.ApplyConfiguration(new TagCfg());
+   modelBuilder.ApplyConfiguration(new PostTagCfg());
  }
 
 ```
@@ -77,7 +77,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 添加一条迁移记录
 
 ```
-Add-Migration AddNewTagEntity_Migration
+Add-Migration AddNewPostTagEntity_Migration
 ```
 
 同步实体文件到数据库中
