@@ -1,0 +1,36 @@
+﻿@using Abp.Authorization.Users
+@using Wyj.Blog.Web.Models.Common.Modals
+@model Wyj.Blog.Blog.Dtos.CategoryEditDto
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("分类编辑"))
+<form name="CategoryEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" role="tab" href="#edit-category-details">@L("UserDetails")</a>
+            </li>
+        </ul>
+        <div class="tab-content mt-4">
+            <div role="tabpanel" class="tab-pane container active" id="edit-category-details">
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="categoryName">分类名称</label>
+                    <div class="col-md-9">
+                        <input id="categoryName" type="text" class="form-control" name="CategoryName" value="@Model.CategoryName" required minlength="2">
+                    </div>
+                </div>
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="displayName">展示名称</label>
+                    <div class="col-md-9">
+                        <input id="displayName" type="text" class="form-control" name="DisplayName" value="@Model.DisplayName" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Category/_EditModal.js" asp-append-version="true"></script>

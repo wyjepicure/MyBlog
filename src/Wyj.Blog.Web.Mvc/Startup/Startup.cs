@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -16,19 +17,24 @@ using Wyj.Blog.Web.Resources;
 using Abp.AspNetCore.SignalR.Hubs;
 using Abp.Dependency;
 using Abp.Json;
+using LogDashboard;
+using LogDashboard.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
-
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Wyj.Blog.Web.Startup
 {
     public class Startup
     {
         private readonly IConfigurationRoot _appConfiguration;
+        private readonly IWebHostEnvironment _env;
 
         public Startup(IWebHostEnvironment env)
         {
             _appConfiguration = env.GetAppConfiguration();
+            _env = env;
         }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -56,7 +62,31 @@ namespace Wyj.Blog.Web.Startup
             services.AddScoped<IWebResourceManager, WebResourceManager>();
 
             services.AddSignalR();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo() { Title = "MyBlog API", Version = "v1" });
+                options.DocInclusionPredicate((docName, description) => true);
 
+                // Define the BearerAuth scheme that's in use
+                options.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme()
+                {
+                    Description =
+                        "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                // Assign scope requirements to operations based on AuthorizeAttribute
+                options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
+
+            services.AddLogDashboard(opt =>
+            {
+                opt.SetRootPath(_env.ContentRootPath);
+
+                //        opt.AddAuthorizeAttribute(new AbpMvcAuthorizeAttribute(PermissionNames.Pages_Users));
+            });
             // Configure Abp and Dependency Injection
             return services.AddAbp<BlogWebMvcModule>(
                 // Configure Log4Net logging
@@ -82,7 +112,7 @@ namespace Wyj.Blog.Web.Startup
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseLogDashboard();
             app.UseAuthentication();
 
             app.UseJwtTokenMiddleware();
@@ -95,6 +125,16 @@ namespace Wyj.Blog.Web.Startup
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("defaultWithArea", "{area}/{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CourierStation API V1");
+                //options.IndexStream = () => Assembly.GetAssembly(typeof(Startup))
+                //    .GetManifestResourceStream("Wyj.Blog.Web.wwwroot.swagger.ui.index.html");
+            }); // URL: /swagger
         }
     }
 }

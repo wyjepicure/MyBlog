@@ -57,6 +57,24 @@ namespace Wyj.Blog.Web.Startup
                 )
                 .AddItem(
                     new MenuItemDefinition(
+                        PageNames.Blogs,
+                        L("Blog"),
+                        url: "Blog",
+                        icon: "fa fa-fw fa-book"
+                    // permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
+                    )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Categorys,
+                        L("Category"),
+                        url: "Category",
+                        icon: "fa fa-fw fa-server"
+                    // permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
+                    )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
                         PageNames.About,
                         L("About"),
                         url: "About",

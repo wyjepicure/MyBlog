@@ -90,14 +90,6 @@
         }
 
         var tag = _$form.serializeFormToObject();
-        //user.roleNames = [];
-        //var _$roleCheckboxes = _$form[0].querySelectorAll("input[name='role']:checked");
-        //if (_$roleCheckboxes) {
-        //    for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
-        //        var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-        //        user.roleNames.push(_$roleCheckbox.val());
-        //    }
-        //}
 
         abp.ui.setBusy(_$modal);
         _tagService.create(tag).done(function () {
@@ -141,7 +133,7 @@
 
         e.preventDefault();
         abp.ajax({
-            url: abp.appPath + 'Tags/EditModal?tagId=' + tagId,
+            url: abp.appPath + 'Tag/EditModal?tagId=' + tagId,
             type: 'POST',
             dataType: 'html',
             success: function (content) {

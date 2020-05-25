@@ -124,7 +124,7 @@ namespace Wyj.Blog.Blog
         /// 新增
         /// </summary>
         //[AbpAuthorize(TagPermissions.Pages_Blog_Tag_Create)]
-        protected virtual async Task<TagEditDto> Create(TagEditDto input)
+        public  async Task<TagEditDto> Create(TagEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
 
@@ -140,7 +140,7 @@ namespace Wyj.Blog.Blog
         /// 编辑
         /// </summary>
        // [AbpAuthorize(TagPermissions.Pages_Blog_Tag_Edit)]
-        protected virtual async Task Update(TagEditDto input)
+        public  async Task Update(TagEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
 

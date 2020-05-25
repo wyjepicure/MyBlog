@@ -50,7 +50,7 @@ namespace Wyj.Blog.Blog
         /// <param name="input"></param>
         /// <returns></returns>
         // [AbpAuthorize(CategoryPermissions.Pages_Blog_Category_Query)]
-        public async Task<PagedResultDto<CategoryListDto>> GetPaged(GetCategorysInput input)
+        public async Task<PagedResultDto<CategoryListDto>> GetAll(GetCategorysInput input)
         {
             var query = _categoryRepository.GetAll()
 
@@ -132,7 +132,7 @@ namespace Wyj.Blog.Blog
         /// 新增
         /// </summary>
         //[AbpAuthorize(CategoryPermissions.Pages_Blog_Category_Create)]
-        protected virtual async Task<CategoryEditDto> Create(CategoryEditDto input)
+        public async Task<CategoryEditDto> Create(CategoryEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
 
@@ -148,7 +148,7 @@ namespace Wyj.Blog.Blog
         /// 编辑
         /// </summary>
         //[AbpAuthorize(CategoryPermissions.Pages_Blog_Category_Edit)]
-        protected virtual async Task Update(CategoryEditDto input)
+        public async Task Update(CategoryEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
 

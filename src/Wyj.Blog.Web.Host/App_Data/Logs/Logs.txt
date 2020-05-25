@@ -601,3 +601,193 @@ INFO  2020-05-23 14:00:16,096 [11   ] .Mvc.Infrastructure.ObjectResultExecutor -
 INFO  2020-05-23 14:00:16,111 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Blog.TagAppService.GetAll (Wyj.Blog.Application) in 399.7786ms
 INFO  2020-05-23 14:00:16,114 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Blog.TagAppService.GetAll (Wyj.Blog.Application)'
 INFO  2020-05-23 14:00:16,118 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 455.3494ms 200 application/json; charset=utf-8
+DEBUG 2020-05-25 10:28:13,134 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-05-25 10:28:13,422 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-05-25 10:28:13,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wyj.Blog.Web.Host.Startup.BlogWebHostModule, Wyj.Blog.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,442 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wyj.Blog.BlogWebCoreModule, Wyj.Blog.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,443 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wyj.Blog.BlogApplicationModule, Wyj.Blog.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wyj.Blog.BlogCoreModule, Wyj.Blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,445 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,446 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wyj.Blog.EntityFrameworkCore.BlogEntityFrameworkModule, Wyj.Blog.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,446 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,446 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,447 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,447 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,447 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,448 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.6.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:13,451 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-05-25 10:28:13,647 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-05-25 10:28:13,648 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-05-25 10:28:13,648 [1    ] o.Configuration.LanguageManagementConfig - Converted Blog (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-05-25 10:28:13,648 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-05-25 10:28:14,095 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wyj.Blog.EntityFrameworkCore.BlogDbContext, Wyj.Blog.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-05-25 10:28:15,015 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-05-25 10:28:15,104 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-05-25 10:28:15,152 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-05-25 10:28:15,177 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Blog
+DEBUG 2020-05-25 10:28:15,211 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-05-25 10:28:15,520 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-05-25 10:28:15,716 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wyj.Blog.MultiTenancy.Tenant, Wyj.Blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wyj.Blog.Authorization.Users.User, Wyj.Blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-05-25 10:28:15,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-05-25 10:28:15,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-05-25 10:28:15,783 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Users.Dto.CreateUserDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Users.Dto.UserDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.Roles.Dto.PermissionDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-05-25 10:28:15,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wyj.Blog.MultiTenancy.Dto.TenantDto
+INFO  2020-05-25 10:28:18,426 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,zh-Hans,ja
+INFO  2020-05-25 10:28:18,887 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\97953\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+WARN  2020-05-25 10:28:18,957 [1    ] Microsoft.AspNetCore.Server.Kestrel      - Overriding address(es) 'http://localhost:21021/'. Binding to endpoints defined in UseKestrel() instead.
+INFO  2020-05-25 10:28:20,489 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2020-05-25 10:28:20,884 [9    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Web.Host.Controllers.HomeController.Index (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:25,469 [9    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wyj.Blog.Web.Host.Controllers.HomeController (Wyj.Blog.Web.Host).
+INFO  2020-05-25 10:28:27,235 [9    ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Web.Host.Controllers.HomeController.Index (Wyj.Blog.Web.Host) - Validation state: Valid
+INFO  2020-05-25 10:28:27,244 [9    ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Web.Host.Controllers.HomeController.Index (Wyj.Blog.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.6527ms.
+INFO  2020-05-25 10:28:27,568 [13   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2020-05-25 10:28:27,579 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Web.Host.Controllers.HomeController.Index (Wyj.Blog.Web.Host) in 2101.9445ms
+INFO  2020-05-25 10:28:27,583 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Web.Host.Controllers.HomeController.Index (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:27,600 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 7112.2076ms 302 
+INFO  2020-05-25 10:28:27,636 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2020-05-25 10:28:27,679 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 38.5318ms 301 
+INFO  2020-05-25 10:28:27,684 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-05-25 10:28:27,749 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 65.7379ms 200 text/html;charset=utf-8
+INFO  2020-05-25 10:28:28,018 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2020-05-25 10:28:28,035 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2020-05-25 10:28:28,048 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2020-05-25 10:28:28,060 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2020-05-25 10:28:28,076 [15   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2020-05-25 10:28:28,154 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'C:\Users\97953\Desktop\Wyj.Blog (1)\5.5.0\aspnet-core\src\Wyj.Blog.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2020-05-25 10:28:28,154 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Users\97953\Desktop\Wyj.Blog (1)\5.5.0\aspnet-core\src\Wyj.Blog.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2020-05-25 10:28:28,160 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 243.0563ms 200 application/javascript
+INFO  2020-05-25 10:28:28,162 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 249.5353ms 200 application/javascript
+INFO  2020-05-25 10:28:28,192 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:28,229 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:28,242 [15   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 288.4054ms 200 text/css
+INFO  2020-05-25 10:28:28,246 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 309.9077ms 200 application/javascript
+INFO  2020-05-25 10:28:28,272 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:28,275 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 353.2382ms 200 application/javascript
+INFO  2020-05-25 10:28:28,644 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2020-05-25 10:28:28,661 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 11.6715ms 404 
+INFO  2020-05-25 10:28:28,679 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://127.0.0.1:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2020-05-25 10:28:28,687 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 8.8417ms 404 
+INFO  2020-05-25 10:28:28,947 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2020-05-25 10:28:28,957 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 8.6095ms 404 
+INFO  2020-05-25 10:28:28,962 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://127.0.0.1:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2020-05-25 10:28:28,967 [9    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 4.7437ms 404 
+INFO  2020-05-25 10:28:29,119 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-05-25 10:28:29,125 [5    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:29,142 [5    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller Wyj.Blog.Web.Host.Controllers.AntiForgeryController (Wyj.Blog.Web.Host).
+INFO  2020-05-25 10:28:29,193 [5    ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host) - Validation state: Valid
+INFO  2020-05-25 10:28:29,202 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-05-25 10:28:29,215 [5    ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 19.4169ms.
+INFO  2020-05-25 10:28:29,262 [5    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:28:29,486 [5    ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host) in 335.4234ms
+INFO  2020-05-25 10:28:29,493 [5    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:29,497 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 376.9229ms 200 application/json; charset=utf-8
+INFO  2020-05-25 10:28:29,564 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 360.9412ms 200 application/json;charset=utf-8
+INFO  2020-05-25 10:28:39,537 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Post/GetPaged  
+INFO  2020-05-25 10:28:39,545 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application)'
+INFO  2020-05-25 10:28:39,579 [13   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "GetPaged", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Abp.Application.Services.Dto.PagedResultDto`1[Wyj.Blog.Blog.Dtos.PostListDto]] GetPaged(Wyj.Blog.Blog.Dtos.GetPostsInput) on controller Wyj.Blog.Blog.PostAppService (Wyj.Blog.Application).
+WARN  2020-05-25 10:28:40,042 [13   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+INFO  2020-05-25 10:28:40,048 [13   ] c.Infrastructure.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2020-05-25 10:28:40,055 [13   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:28:40,074 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application) in 487.4148ms
+INFO  2020-05-25 10:28:40,077 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application)'
+INFO  2020-05-25 10:28:40,081 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 545.8377ms 401 application/json; charset=utf-8
+INFO  2020-05-25 10:28:52,598 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 54
+INFO  2020-05-25 10:28:52,607 [5    ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2020-05-25 10:28:52,609 [5    ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2020-05-25 10:28:52,616 [5    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Controllers.TokenAuthController.Authenticate (Wyj.Blog.Web.Core)'
+INFO  2020-05-25 10:28:52,627 [5    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Wyj.Blog.Models.TokenAuth.AuthenticateResultModel] Authenticate(Wyj.Blog.Models.TokenAuth.AuthenticateModel) on controller Wyj.Blog.Controllers.TokenAuthController (Wyj.Blog.Web.Core).
+INFO  2020-05-25 10:28:53,727 [5    ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Controllers.TokenAuthController.Authenticate (Wyj.Blog.Web.Core) - Validation state: Valid
+INFO  2020-05-25 10:28:54,392 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Controllers.TokenAuthController.Authenticate (Wyj.Blog.Web.Core), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 661.9708ms.
+INFO  2020-05-25 10:28:54,408 [4    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:28:54,421 [4    ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Controllers.TokenAuthController.Authenticate (Wyj.Blog.Web.Core) in 1791.752ms
+INFO  2020-05-25 10:28:54,424 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Controllers.TokenAuthController.Authenticate (Wyj.Blog.Web.Core)'
+INFO  2020-05-25 10:28:54,426 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1828.6447ms 200 application/json; charset=utf-8
+INFO  2020-05-25 10:28:54,452 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2020-05-25 10:28:54,460 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5.1672ms 200 text/html;charset=utf-8
+INFO  2020-05-25 10:28:54,514 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2020-05-25 10:28:54,516 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2020-05-25 10:28:54,518 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2020-05-25 10:28:54,541 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2020-05-25 10:28:54,580 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2020-05-25 10:28:54,586 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:54,590 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:54,652 [15   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 76.178ms 200 application/javascript
+INFO  2020-05-25 10:28:54,674 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'C:\Users\97953\Desktop\Wyj.Blog (1)\5.5.0\aspnet-core\src\Wyj.Blog.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2020-05-25 10:28:54,765 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Users\97953\Desktop\Wyj.Blog (1)\5.5.0\aspnet-core\src\Wyj.Blog.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2020-05-25 10:28:54,801 [5    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 156.8314ms 200 application/javascript
+INFO  2020-05-25 10:28:54,801 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 258.9699ms 200 application/javascript
+INFO  2020-05-25 10:28:54,839 [28   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 90.5994ms 200 text/css
+INFO  2020-05-25 10:28:54,880 [27   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2020-05-25 10:28:54,892 [27   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 386.2002ms 200 application/javascript
+INFO  2020-05-25 10:28:55,064 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2020-05-25 10:28:55,117 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 12.0317ms 404 
+INFO  2020-05-25 10:28:55,123 [27   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://127.0.0.1:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2020-05-25 10:28:55,146 [27   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 9.5284ms 404 
+INFO  2020-05-25 10:28:55,404 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2020-05-25 10:28:55,427 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 15.1247ms 404 
+INFO  2020-05-25 10:28:55,440 [36   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://127.0.0.1:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2020-05-25 10:28:55,454 [36   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 16.2431ms 404 
+INFO  2020-05-25 10:28:55,577 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/AntiForgery/SetCookie  
+INFO  2020-05-25 10:28:55,669 [10   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2020-05-25 10:28:55,715 [10   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-05-25 10:28:55,721 [4    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-05-25 10:28:55,891 [4    ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:55,901 [4    ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller Wyj.Blog.Web.Host.Controllers.AntiForgeryController (Wyj.Blog.Web.Host).
+INFO  2020-05-25 10:28:56,055 [4    ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host) - Validation state: Valid
+INFO  2020-05-25 10:28:56,061 [4    ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2.496ms.
+INFO  2020-05-25 10:28:56,100 [13   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:28:56,105 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host) in 200.0289ms
+INFO  2020-05-25 10:28:56,108 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Web.Host.Controllers.AntiForgeryController.SetCookie (Wyj.Blog.Web.Host)'
+INFO  2020-05-25 10:28:56,111 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 539.8142ms 200 application/json; charset=utf-8
+INFO  2020-05-25 10:28:56,141 [35   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 468.9828ms 200 application/json;charset=utf-8
+INFO  2020-05-25 10:29:15,915 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Post/CreateOrUpdate application/json-patch+json 111
+INFO  2020-05-25 10:29:15,919 [14   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2020-05-25 10:29:15,922 [14   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2020-05-25 10:29:15,938 [14   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-05-25 10:29:15,947 [14   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application)'
+INFO  2020-05-25 10:29:15,969 [14   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "CreateOrUpdate", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task CreateOrUpdate(Wyj.Blog.Blog.Dtos.CreateOrUpdatePostInput) on controller Wyj.Blog.Blog.PostAppService (Wyj.Blog.Application).
+INFO  2020-05-25 10:29:16,678 [14   ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application) - Validation state: Valid
+INFO  2020-05-25 10:29:20,297 [14   ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 3614.5164ms.
+INFO  2020-05-25 10:29:20,593 [11   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:29:20,615 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application) in 4624.429ms
+INFO  2020-05-25 10:29:20,625 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application)'
+INFO  2020-05-25 10:29:20,641 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 4713.9908ms 200 application/json; charset=utf-8
+INFO  2020-05-25 10:29:37,038 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Post/CreateOrUpdate application/json-patch+json 111
+INFO  2020-05-25 10:29:37,041 [11   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2020-05-25 10:29:37,045 [11   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2020-05-25 10:29:37,051 [11   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-05-25 10:29:37,055 [11   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application)'
+INFO  2020-05-25 10:29:37,066 [11   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "CreateOrUpdate", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task CreateOrUpdate(Wyj.Blog.Blog.Dtos.CreateOrUpdatePostInput) on controller Wyj.Blog.Blog.PostAppService (Wyj.Blog.Application).
+INFO  2020-05-25 10:29:37,121 [11   ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application) - Validation state: Valid
+INFO  2020-05-25 10:30:29,763 [11   ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 52639.8451ms.
+INFO  2020-05-25 10:30:32,892 [46   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:30:32,896 [46   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application) in 55826.9537ms
+INFO  2020-05-25 10:30:32,901 [46   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Blog.PostAppService.CreateOrUpdate (Wyj.Blog.Application)'
+INFO  2020-05-25 10:30:32,904 [46   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 55867.238ms 200 application/json; charset=utf-8
+INFO  2020-05-25 10:30:39,641 [45   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Post/GetPaged  
+INFO  2020-05-25 10:30:39,651 [45   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2020-05-25 10:30:39,657 [45   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application)'
+INFO  2020-05-25 10:30:39,672 [45   ] c.Infrastructure.ControllerActionInvoker - Route matched with {area = "app", action = "GetPaged", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Abp.Application.Services.Dto.PagedResultDto`1[Wyj.Blog.Blog.Dtos.PostListDto]] GetPaged(Wyj.Blog.Blog.Dtos.GetPostsInput) on controller Wyj.Blog.Blog.PostAppService (Wyj.Blog.Application).
+INFO  2020-05-25 10:30:39,732 [45   ] c.Infrastructure.ControllerActionInvoker - Executing action method Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application) - Validation state: Valid
+INFO  2020-05-25 10:30:40,508 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action method Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 772.8709ms.
+INFO  2020-05-25 10:30:40,521 [44   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-05-25 10:30:40,549 [44   ] c.Infrastructure.ControllerActionInvoker - Executed action Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application) in 874.112ms
+INFO  2020-05-25 10:30:40,552 [44   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'Wyj.Blog.Blog.PostAppService.GetPaged (Wyj.Blog.Application)'
+INFO  2020-05-25 10:30:40,555 [44   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 919.0385ms 200 application/json; charset=utf-8

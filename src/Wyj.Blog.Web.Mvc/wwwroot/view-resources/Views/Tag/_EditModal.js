@@ -1,7 +1,7 @@
 ﻿(function ($) {
-    var _userService = abp.services.app.user,
+    var _tagService = abp.services.app.tag,
         l = abp.localization.getSource('Blog'),
-        _$modal = $('#UserEditModal'),
+        _$modal = $('#TagEditModal'),
         _$form = _$modal.find('form');
 
     function save() {
@@ -9,21 +9,15 @@
             return;
         }
 
-        var user = _$form.serializeFormToObject();
-        user.roleNames = [];
-        var _$roleCheckboxes = _$form[0].querySelectorAll("input[name='role']:checked");
-        if (_$roleCheckboxes) {
-            for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
-                var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-                user.roleNames.push(_$roleCheckbox.val());
-            }
-        }
+        var tag = _$form.serializeFormToObject();
+     
+      
 
         abp.ui.setBusy(_$form);
-        _userService.update(user).done(function () {
+        _tagService.update(tag).done(function () {
             _$modal.modal('hide');
             abp.notify.info(l('SavedSuccessfully'));
-            abp.event.trigger('user.edited', user);
+            abp.event.trigger('tag.edited', tag);
         }).always(function () {
             abp.ui.clearBusy(_$form);
         });

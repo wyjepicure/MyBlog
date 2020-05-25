@@ -7,10 +7,5 @@ namespace Wyj.Blog.Dtos
         public string FilterText { get; set; }
 
 
-
-		 
-		 
-         
-
     }
 }

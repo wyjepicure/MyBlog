@@ -19,7 +19,7 @@ namespace Wyj.Blog.Blog
 		///</summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<PagedResultDto<CategoryListDto>> GetPaged(GetCategorysInput input);
+        Task<PagedResultDto<CategoryListDto>> GetAll(GetCategorysInput input);
 
         /// <summary>
         /// 通过指定id获取ListDto信息

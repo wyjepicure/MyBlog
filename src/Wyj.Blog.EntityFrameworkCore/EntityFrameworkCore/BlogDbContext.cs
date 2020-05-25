@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using Wyj.Blog.Authorization.Roles;
 using Wyj.Blog.Authorization.Users;
 using Wyj.Blog.Blog;
+using Wyj.Blog.EntityMapper.Categorys;
 using Wyj.Blog.MultiTenancy;
 
 namespace Wyj.Blog.EntityFrameworkCore
@@ -19,6 +20,11 @@ namespace Wyj.Blog.EntityFrameworkCore
         public BlogDbContext(DbContextOptions<BlogDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -1,27 +1,27 @@
 ﻿@using Wyj.Blog.Web.Startup
 
 @{
-    ViewBag.Title = L("Roles");
+    ViewBag.Title = "标签";
     ViewBag.CurrentPageName = PageNames.Tags;
 }
 @section scripts
 {
     <environment names="Development">
-            <script src="~/view-resources/Views/Tag/Index.js" asp-append-version="true"></script>
-        </environment>
+        <script src="~/view-resources/Views/Tag/Index.js" asp-append-version="true"></script>
+    </environment>
 
-        <environment names="Staging,Production">
-            <script src="~/view-resources/Views/Roles/Index.min.js" asp-append-version="true"></script>
-        </environment>
+    @*<environment names="Staging,Production">
+            <script src="~/view-resources/Views/Tag/Index.min.js" asp-append-version="true"></script>
+        </environment>*@
 }
 <section class="content-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <h1>@L("Tags")</h1>
+                <h1>标签</h1>
             </div>
             <div class="col-sm-6">
-                <a href="javascript:;" data-toggle="modal" data-target="#TagsCreateModal" class="btn bg-blue float-sm-right">
+                <a href="javascript:;" data-toggle="modal" data-target="#TagCreateModal" class="btn bg-blue float-sm-right">
                     <i class="fa fa-plus-square"></i>
                     @L("Create")
                 </a>
@@ -50,7 +50,7 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>@L("TagName")</th>
+                                        <th>标签名</th>
                                         <th>@L("DisplayName")</th>
                                         <th style="width: 150px">@L("Actions")</th>
                                     </tr>
@@ -66,9 +66,9 @@
     </div>
 </section>
 
-@*@await Html.PartialAsync("~/Views/Tag/_CreateModal.cshtml", Model)*@
+@await Html.PartialAsync("~/Views/Tag/_CreateModal.cshtml")
 
-<div class="modal fade" id="RoleEditModal" tabindex="-1" role="dialog" aria-labelledby="RoleEditModalLabel" data-backdrop="static">
+<div class="modal fade" id="TagEditModal" tabindex="-1" role="dialog" aria-labelledby="TagEditModalLabel" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
         </div>
