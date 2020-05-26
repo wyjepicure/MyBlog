@@ -11,5 +11,16 @@
     <title>Preview</title>
 </head>
 <body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    //axios.post("/Blog/UploadFilePic").then(result => {
+    //    console.log("1");
+    //});
+    $.post('/Blog/UploadFilePic',
+        function(result) {
+            console.log("11");
+        });
+</script>
 </body>
 </html>

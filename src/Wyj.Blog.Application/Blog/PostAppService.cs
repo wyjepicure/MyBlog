@@ -24,7 +24,7 @@ namespace Wyj.Blog.Blog
     /// <summary>
     /// 应用层服务的接口实现方法
     ///</summary>
-    [AbpAuthorize]
+    
     public class PostAppService : BlogAppServiceBase, IPostAppService
     {
         private readonly IRepository<Post, Guid> _postRepository;
@@ -138,7 +138,7 @@ namespace Wyj.Blog.Blog
         /// 新增
         /// </summary>
 
-        protected virtual async Task<PostEditDto> Create(PostEditDto input)
+        public  async Task<PostEditDto> Create(PostEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
 
@@ -154,7 +154,7 @@ namespace Wyj.Blog.Blog
         /// 编辑
         /// </summary>
 
-        protected virtual async Task Update(PostEditDto input)
+        public  async Task Update(PostEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
 

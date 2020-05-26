@@ -1,14 +1,16 @@
 ﻿@model Wyj.Blog.Web.Models.Blogs.Article
 @{
     ViewData["Title"] = "MarkDown";
-    Layout = "~/Views/editor/_Layout.cshtml";
+    Layout = "~/Views/Editor/_Layout.cshtml";
 }
 
 <link href="~/Lib/MarkDown/css/editormd.css" rel="stylesheet" />
 <link href="~/Lib/MarkDown/css/editormd.preview.css" rel="stylesheet" />
 <script src="~/Lib/MarkDown/js/editormd.js"></script>
 <link href="~/Lib/MarkDown/css/Note.css?v=2" rel="stylesheet" />
-<script src="~/libs/jquery/jquery.min.js"></script>
+<script src="~/js/axios.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <style>
 
     ol li {
@@ -28,7 +30,7 @@
     </div>
     <br /><br />
     <div id="test-editormd">
-        <textarea id="articleContent" style="display: none;">@Html.Raw(Model.Context)</textarea>
+        <textarea id="articleContent" style="display: none;"></textarea>
     </div>
 </div>
 
@@ -52,10 +54,10 @@
             syncScrolling: "single",
             path: "/Lib/MarkDown/lib/",
             saveHTMLToTextarea: true,
-            emoji: true,
-            imageUpload: true,
-            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL: "/Editor/UpImage/@Model.Id"
+            emoji: true
+            //imageUpload: true,
+            //imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            //imageUploadURL: "/Editor/UpImage"
         });
 
     });
@@ -63,19 +65,38 @@
         var items = (event.clipboardData || event.originalEvent.clipboardData).items;
         for (var index in items) {
             var item = items[index];
+            var reader = new FileReader();
+
             if (item.kind === 'file') {
                 var blob = item.getAsFile();
-                var reader = new FileReader();
+
                 reader.onload = function (event) {
                     //将剪切板中复制信息转换成一种base64格式字符串
                     var base64 = event.target.result;
-                        //ajax上传图片
-                        $.ajax({
+                    var form = new FormData();
+                    form.append("base", base64);
+                    // Send a POST request
+                    axios({
+                        method: 'post',
+                        url: '/Editor/UpladFilePIC',
+                        data: form,
+                        contentType: "application/x-www-form-urlencoded",
+                        dataType: 'json'
+
+                    }).then(function (res) {
+                        var data = JSON.parse(res.data.result);
+                        testEditor.insertValue("\n![" + "image.png" + "](" + data.msg + ")");
+                    }).catch(function () {
+                        alert('图片上传错误');
+                    });
+
+                        @*$.ajax({
                             url: "/Editor/UpladFilePIC/@Model.Id",
-                            type: 'post',
-                            data: { 'base': base64},
+                            method: 'post',
+                            data: form,
+                            processData:false,
+
                             async: false,
-                            dataType: 'json',
                             success: function (res) {
                                 if(res.code==1)//新一行的图片显示
                                     testEditor.insertValue("\n![" + "image.png" + "](" + res.msg + ")");
@@ -83,7 +104,7 @@
                             error: function () {
                                 alert('图片上传错误');
                             }
-                        });
+                        });*@
                     }
                 }; // data url!
                 var url = reader.readAsDataURL(blob);
@@ -106,9 +127,9 @@
                 flowChart: true,
                 sequenceDiagram: true,
                 emoji: true,
-                imageUpload    : true,
-                imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL : "../UpImage?ContextId=@Model.Id",
+                //imageUpload    : true,
+                //imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                //imageUploadURL : "../UpImage",
                 taskList: true,
                 onload: function () {
                     console.log('onload', this);

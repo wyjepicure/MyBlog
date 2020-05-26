@@ -1,15 +1,203 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewData["Title"] = "MarkDown";
+    Layout = "~/Views/Blog/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<link href="~/Lib/MarkDown/css/editormd.css" rel="stylesheet" />
+<link href="~/Lib/MarkDown/css/editormd.preview.css" rel="stylesheet" />
+<script src="~/Lib/MarkDown/js/editormd.js"></script>
+<link href="~/Lib/MarkDown/css/Note.css?v=2" rel="stylesheet" />
+<script src="~/js/axios.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add</title>
-</head>
-<body>
-</body>
-</html>
+<style>
+
+    ol li {
+        list-style-type: decimal;
+        list-style-position: inside;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+</style>
+<div id="layout">
+    <div style="margin: auto; text-align: center;">
+        <a class="btn" asp-controller="Blog" asp-action="Index">返回</a>
+        <button class="btn" id="get-md-btn">保存</button>
+        <button class="btn" id="md-demo">手册</button>
+        <br />
+        <div style="margin: auto; text-align: center;" class="row">
+            <form id="form1" role="form">
+                <div class="form-group col-md-3">
+                    <label class="col-sm-2 control-label">标题</label>
+                    <input type="text" name="Title" class="form-control" placeholder="请输入文章标题">
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="col-sm-2 control-label">作者</label>
+                    <input type="text" name="Author" class="form-control" placeholder="请输入文章作者">
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="col-sm-2 control-label">类别</label>
+                    <select class="form-control" name="CategoryId">
+                        <option value="1">java</option>
+                        <option value="2"> C#</option>
+                        <option value="3"> python</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br /><br />
+
+    <div id="test-editormd">
+        <textarea id="articleContent" style="display: none;"></textarea>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        var testEditor;
+        var _blogService = abp.services.app.post;
+        testEditor = editormd("test-editormd", {
+            width: "99%",
+            height: 640,
+            syncScrolling: "single",
+            path: "/Lib/MarkDown/lib/",
+            saveHTMLToTextarea: true,
+            emoji: true
+            //imageUpload: true,
+            //imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            //imageUploadURL: "/Editor/UpImage"
+        });
+
+        $("#get-md-btn").bind('click', function () {
+            btnSave();
+        });
+        function btnSave() {
+            _$form = $('#form1');
+            //_$form.append("Html", testEditor.getHTML());
+            //_$form.append("Markdown", testEditor.getMarkdown());
+            var blog = _$form.serializeFormToObject();
+            blog.Html = testEditor.getHTML();
+            blog.Markdown = testEditor.getMarkdown();
+            //blog.append("Html", testEditor.getHTML());
+            //blog.append("Markdown", testEditor.getMarkdown());
+
+            console.log(blog);
+
+            _blogService.create(blog).done(function () {
+
+                abp.message.success("添加成功");
+
+            }).always(function () {
+
+            });
+            //alert("html数据：" + testEditor.getHTML());
+            //alert("markdown数据：" + testEditor.getMarkdown());
+            //保存大家根据需要保存文本就好。
+        }
+        $("#back-last").bind('click', function () {
+            window.close();
+        });
+
+        $("#md-demo").bind('click', function () {
+            $.get("/Lib/MarkDown/examples/test.md", function (md) {
+                testEditor = editormd("test-editormd", {
+                    width: "99%",
+                    height: 740,
+                    path: "/Lib/MarkDown/lib/",
+                    appendMarkdown: "\n" + md,
+                    saveHTMLToTextarea: true,
+                    watch: false,
+                    htmlDecode: true,
+                    toolbar: false,
+                    previewCodeHighlight: false,
+                    tex: true,
+                    flowChart: true,
+                    sequenceDiagram: true,
+                    emoji: true,
+                    //imageUpload    : true,
+                    //imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    //imageUploadURL : "../UpImage",
+                    taskList: true,
+                    onload: function () {
+                        console.log('onload', this);
+
+                        this.config("lineNumbers", false);
+
+                        this.config({
+                            toc: false,
+                            tex: false,
+                            toolbar: true,
+                            previewCodeHighlight: true,
+                            flowChart: false,
+                            sequenceDiagram: false,
+                            dialogLockScreen: false,
+                            dialogMaskOpacity: 0.5,       // 设置透明遮罩层的透明度，全局通用，默认值为0.1
+                            dialogDraggable: false,
+                            dialogMaskBgColor: "#000"
+                        });
+
+                        this.config("onresize", function () {
+                            console.log("onresize =>", this);
+                        });
+
+                        this.watch();
+                    }
+                });
+            });
+        });
+
+        $("#test-editormd").on('paste', function (ev) {
+            var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+            for (var index in items) {
+                var item = items[index];
+                var reader = new FileReader();
+
+                if (item.kind === 'file') {
+                    var blob = item.getAsFile();
+
+                    reader.onload = function (event) {
+                        //将剪切板中复制信息转换成一种base64格式字符串
+                        var base64 = event.target.result;
+                        var form = new FormData();
+                        form.append("base", base64);
+                        // Send a POST request
+                        axios({
+                            method: 'post',
+                            url: '/Editor/UpladFilePIC',
+                            data: form,
+                            contentType: "application/x-www-form-urlencoded",
+                            dataType: 'json'
+
+                        }).then(function (res) {
+                            var data = JSON.parse(res.data.result);
+                            testEditor.insertValue("\n![" + "image.png" + "](" + data.msg + ")");
+                        }).catch(function () {
+                            alert('图片上传错误');
+                        });
+
+                        @* $.ajax({
+                            url: "/Editor/UpladFilePIC/@Model.Id",
+                            method: 'post',
+                            data: form,
+                            processData: false,
+
+                            async: false,
+                            success: function (res) {
+                                if (res.code == 1)//新一行的图片显示
+                                    testEditor.insertValue("\n![" + "image.png" + "](" + res.msg + ")");
+                            },
+                            error: function () {
+                                alert('图片上传错误');
+                            }
+                        });*@
+                }
+                }; // data url!
+                var url = reader.readAsDataURL(blob);
+            }
+        });
+    });
+</script>

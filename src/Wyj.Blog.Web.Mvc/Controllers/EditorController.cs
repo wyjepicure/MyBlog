@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Common;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Wyj.Blog.Controllers;
@@ -14,6 +15,13 @@ namespace Wyj.Blog.Web.Controllers
 {
     public class EditorController : BlogControllerBase
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public EditorController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         #region MarkDown
 
         public IActionResult MarkDown()
@@ -26,7 +34,7 @@ namespace Wyj.Blog.Web.Controllers
         }
 
         [HttpPost]
-        public string UpladFilePIC(long? id)//id传过来，如需保存可以备用
+        public string UpladFilePIC()//id传过来，如需保存可以备用
         {
             IFormCollection fc = HttpContext.Request.Form;
             string savePath = string.Empty;
@@ -42,13 +50,13 @@ namespace Wyj.Blog.Web.Controllers
                 DateTime today = DateTime.Today;
                 string md5 = CommonHelper.CalcMD5(spl[1]);
                 string upFileName = md5 + "." + getImgFormat;//生成随机文件名（ System.Guid.NewGuid().ToString() ）
-                var pathStart = ConfigHelper.GetSectionValue("FileMap:ImgPath") + DateTime.Now.Year + "/" + DateTime.Now.Month + "/";
-                if (System.IO.Directory.Exists(pathStart) == false)//如果不存在新建
+                var pathStart = _webHostEnvironment.WebRootPath + "/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/";
+                if (Directory.Exists(pathStart) == false)//如果不存在新建
                 {
-                    System.IO.Directory.CreateDirectory(pathStart);
+                    Directory.CreateDirectory(pathStart);
                 }
                 var filePath = pathStart + upFileName;
-                string pathNew = ConfigHelper.GetSectionValue("FileMap:ImgWeb") + filePath.Replace(ConfigHelper.GetSectionValue("FileMap:ImgPath"), "");
+                string pathNew = filePath.Replace(_webHostEnvironment.WebRootPath, "");
                 using (MemoryStream memoryStream = new MemoryStream(arr2, 0, arr2.Length))
                 {
                     memoryStream.Write(arr2, 0, arr2.Length);
@@ -62,7 +70,7 @@ namespace Wyj.Blog.Web.Controllers
             return jsonResult;
         }
 
-        public JsonResult UpImage(long? id)//id传过来，如需保存可以备用
+        public JsonResult UpImage()//id传过来，如需保存可以备用
         {
             int success = 0;
             string msg = "";

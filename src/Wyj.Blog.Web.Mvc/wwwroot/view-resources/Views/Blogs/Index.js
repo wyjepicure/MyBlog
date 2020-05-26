@@ -65,7 +65,7 @@
                 targets: 5,
                 data: null,
                 sortable: false,
-              
+
                 defaultContent: '',
                 render: (data, type, row, meta) => {
                     return [`   <button type="button" class="btn btn-sm bg-primary preview-blog" data-blog-id="${row.id}"  >`,
@@ -74,7 +74,7 @@
                     `   <button type="button" class="btn btn-sm bg-secondary edit-blog" data-blog-id="${row.id}">`,
                     `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
                         '   </button>',
-                        `   <button type="button" class="btn btn-sm bg-danger delete-blog" data-blog-id="${row.id}" data-blog-name="${row.title}">`,
+                    `   <button type="button" class="btn btn-sm bg-danger delete-blog" data-blog-id="${row.id}" data-blog-name="${row.title}">`,
                     `       <i class="fas fa-trash"></i> ${l('Delete')}`,
                         '   </button>',
                     ].join('');
@@ -85,14 +85,11 @@
 
     $(document).on('click', '.preview-blog', function () {
         var blogId = $(this).attr("data-blog-id");
-      
 
         previewBlog(blogId);
     });
     function previewBlog(blogId) {
-      
-       
-    }  
+    }
     $(document).on('click', '.delete-blog', function () {
         var blogId = $(this).attr("data-blog-id");
         var blogName = $(this).attr('data-blog-name');
@@ -100,9 +97,9 @@
         deleteBlog(blogId, blogName);
     });
 
-   
-
-  
+    $(document).on('click', '#writeBlog', function () {
+        location.href = 'Blog/Add';
+    });
 
     function deleteBlog(blogId, blogName) {
         abp.message.confirm(
@@ -122,8 +119,6 @@
             }
         );
     }
-
-  
 
     $('.btn-search').on('click', (e) => {
         _$blogsTable.ajax.reload();

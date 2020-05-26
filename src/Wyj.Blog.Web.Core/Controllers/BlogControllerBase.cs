@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Wyj.Blog.Controllers
 {
-    public abstract class BlogControllerBase: AbpController
+    public abstract class BlogControllerBase : AbpController
     {
         protected BlogControllerBase()
         {
