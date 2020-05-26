@@ -18,12 +18,12 @@ namespace Wyj.Blog.Blog
 		///</summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<PagedResultDto<PostListDto>> GetPaged(GetPostsInput input);
+        Task<PagedResultDto<PostDto>> GetPaged(GetPostsInput input);
 
         /// <summary>
         /// 通过指定id获取ListDto信息
         /// </summary>
-        Task<PostListDto> GetById(EntityDto<Guid> input);
+        Task<PostDto> GetById(EntityDto<Guid> input);
 
         /// <summary>
         /// 返回实体的EditDto

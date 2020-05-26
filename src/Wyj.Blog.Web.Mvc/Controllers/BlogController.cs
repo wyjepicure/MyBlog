@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Common;
 using Microsoft.AspNetCore.Hosting;
@@ -27,15 +28,15 @@ namespace Wyj.Blog.Web.Controllers
             return View();
         }
 
-        public IActionResult Preview(Guid postId)
+        public async Task<IActionResult> Preview(Guid postId)
         {
-            var post = _postAppService.GetById(new EntityDto<Guid>(postId));
+            var post = await _postAppService.GetById(new EntityDto<Guid>(postId));
             return View(post);
         }
 
-        public IActionResult Edit(Guid postId)
+        public async Task<IActionResult> Edit(Guid postId)
         {
-            var post = _postAppService.GetById(new EntityDto<Guid>(postId));
+            var post = await _postAppService.GetById(new EntityDto<Guid>(postId));
             return View(post);
         }
 

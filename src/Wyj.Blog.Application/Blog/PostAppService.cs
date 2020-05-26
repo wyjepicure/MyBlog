@@ -12,6 +12,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
+using Abp.Runtime.Caching;
 using Wyj.Blog.Blog;
 using Wyj.Blog.Blog.Dtos;
 
@@ -24,9 +25,10 @@ namespace Wyj.Blog.Blog
     /// <summary>
     /// 应用层服务的接口实现方法
     ///</summary>
-    
+
     public class PostAppService : BlogAppServiceBase, IPostAppService
     {
+        private readonly ICacheManager _cacheManager;
         private readonly IRepository<Post, Guid> _postRepository;
 
         private readonly IPostManager _postManager;
@@ -36,12 +38,11 @@ namespace Wyj.Blog.Blog
         ///</summary>
         public PostAppService(
         IRepository<Post, Guid> postRepository
-              , IPostManager postManager
-
-             )
+              , IPostManager postManager, ICacheManager cacheManager)
         {
             _postRepository = postRepository;
             _postManager = postManager;
+            _cacheManager = cacheManager;
         }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace Wyj.Blog.Blog
         /// <param name="input"></param>
         /// <returns></returns>
 
-        public async Task<PagedResultDto<PostListDto>> GetPaged(GetPostsInput input)
+        public async Task<PagedResultDto<PostDto>> GetPaged(GetPostsInput input)
         {
             var query = _postRepository.GetAll()
 
@@ -74,20 +75,26 @@ namespace Wyj.Blog.Blog
                     .PageBy(input)
                     .ToListAsync();
 
-            var postListDtos = ObjectMapper.Map<List<PostListDto>>(postList);
+            var postListDtos = ObjectMapper.Map<List<PostDto>>(postList);
 
-            return new PagedResultDto<PostListDto>(count, postListDtos);
+            return new PagedResultDto<PostDto>(count, postListDtos);
         }
 
         /// <summary>
         /// 通过指定id获取PostListDto信息
         /// </summary>
 
-        public async Task<PostListDto> GetById(EntityDto<Guid> input)
+        public async Task<PostDto> GetById(EntityDto<Guid> input)
         {
-            var entity = await _postRepository.GetAsync(input.Id);
+            var postRedis = _cacheManager.GetCache("PostCache");
+            var entity = await postRedis.GetAsync(input.Id, async () =>
+           {
+               var post = await _postRepository.GetAsync(input.Id);
+               postRedis.Set(input.Id.ToString(), post);
+               return post;
+           });
 
-            var dto = ObjectMapper.Map<PostListDto>(entity);
+            var dto = ObjectMapper.Map<PostDto>(entity);
             return dto;
         }
 
@@ -138,7 +145,7 @@ namespace Wyj.Blog.Blog
         /// 新增
         /// </summary>
 
-        public  async Task<PostEditDto> Create(PostEditDto input)
+        public async Task<PostEditDto> Create(PostEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
 
@@ -154,7 +161,7 @@ namespace Wyj.Blog.Blog
         /// 编辑
         /// </summary>
 
-        public  async Task Update(PostEditDto input)
+        public async Task Update(PostEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
 

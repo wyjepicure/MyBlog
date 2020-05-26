@@ -1,26 +1,36 @@
-﻿
+﻿@model Wyj.Blog.Blog.Dtos.PostDto
 @{
-    Layout = null;
+    ViewData["Title"] = "MarkDown";
+    Layout = "~/Views/Blog/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Preview</title>
-</head>
-<body>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<link href="~/Lib/MarkDown/css/editormd.css" rel="stylesheet" />
+<link href="~/Lib/MarkDown/css/editormd.preview.css" rel="stylesheet" />
+<script src="~/Lib/MarkDown/js/editormd.js"></script>
+<link href="~/Lib/MarkDown/css/Note.css?v=2" rel="stylesheet" />
+<script src="~/js/axios.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-    //axios.post("/Blog/UploadFilePic").then(result => {
-    //    console.log("1");
-    //});
-    $.post('/Blog/UploadFilePic',
-        function(result) {
-            console.log("11");
-        });
-</script>
-</body>
-</html>
+
+<style>
+
+    ol li {
+        list-style-type: decimal;
+        list-style-position: inside;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+</style>
+<div id="layout">
+    <div style="margin: auto; text-align: center;">
+        <a class="btn" asp-controller="Blog" asp-action="Index">返回</a>
+        <br />
+    </div>
+    <br /><br />
+<div style="margin: auto; text-align: center;">
+    <div id="test-editormd">
+        @Html.Raw(Model.Html)
+    </div>
+</div>
+</div>

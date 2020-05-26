@@ -1,5 +1,6 @@
 ﻿using Abp.Modules;
 using Abp.Reflection.Extensions;
+using Abp.Runtime.Caching.Redis;
 using Abp.Timing;
 using Abp.Zero;
 using Abp.Zero.Configuration;
@@ -12,11 +13,13 @@ using Wyj.Blog.Timing;
 
 namespace Wyj.Blog
 {
-    [DependsOn(typeof(AbpZeroCoreModule))]
+    [DependsOn(typeof(AbpZeroCoreModule),
+        typeof(AbpRedisCacheModule))]
     public class BlogCoreModule : AbpModule
     {
         public override void PreInitialize()
         {
+            Configuration.Caching.UseRedis(op => op.ConnectionString = "127.0.0.1:6379");
             Configuration.Auditing.IsEnabledForAnonymousUsers = true;
 
             // Declare entity types

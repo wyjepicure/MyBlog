@@ -85,10 +85,17 @@
 
     $(document).on('click', '.preview-blog', function () {
         var blogId = $(this).attr("data-blog-id");
-
         previewBlog(blogId);
     });
     function previewBlog(blogId) {
+        location.href = "Blog/Preview/?postId=" + blogId;
+    }
+    $(document).on('click', '.edit-blog', function () {
+        var blogId = $(this).attr("data-blog-id");
+        editBlog(blogId);
+    });
+    function editBlog(blogId) {
+        location.href = "Blog/Edit/?postId=" + blogId;
     }
     $(document).on('click', '.delete-blog', function () {
         var blogId = $(this).attr("data-blog-id");

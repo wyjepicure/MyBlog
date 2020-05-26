@@ -15,8 +15,8 @@ namespace Wyj.Blog.Sms
 {
     public class MontnetsManager : DomainService
     {
-        private readonly string userid = "E10D53";
-        private readonly string pwd = "b0wBgL";
+        private readonly string userid = "";
+        private readonly string pwd = "";
         private readonly string fixedStr = "00000000";
         private readonly string requestPath = "/sms/v2/std/";
         private readonly string ipport = "api01.monyun.cn:7901";

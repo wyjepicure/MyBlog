@@ -12,8 +12,8 @@ namespace Wyj.Blog.Blog.Mapper
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Post, PostListDto>();
-            configuration.CreateMap<PostListDto, Post>();
+            configuration.CreateMap<Post, PostDto>();
+            configuration.CreateMap<PostDto, Post>();
 
             configuration.CreateMap<PostEditDto, Post>();
             configuration.CreateMap<Post, PostEditDto>();
